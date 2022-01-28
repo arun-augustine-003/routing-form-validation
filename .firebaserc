@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "routing-form-validation": {
+      "hosting": {
+        "reactive-forms-basics": [
+          "routing-form-validation"
+        ]
+      }
+    }
+  }
+}
