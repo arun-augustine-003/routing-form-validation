@@ -1,11 +1,48 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DepartmentListComponent } from './department-list/department-list.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { HomeComponent } from './home/home.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { RoutingComponent } from './routing/routing.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PostsComponent } from './posts/posts.component';
+import { ReactiveComponent } from './reactive/reactive.component';
 
 const routes: Routes = [
-  { path: 'departments', component: DepartmentListComponent },
-  { path: 'employees', component: EmployeeListComponent },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactFormComponent,
+  },
+  {
+    path: 'reactive',
+    component: ReactiveComponent,
+  },
+  {
+    path: 'routing',
+    component: RoutingComponent,
+  },
+  {
+    path: 'followers/:id',
+    component: GithubProfileComponent,
+  },
+  {
+    path: 'followers',
+    component: GithubFollowersComponent,
+  },
+
+  {
+    path: 'posts',
+    component: PostsComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
@@ -13,7 +50,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-export const routingComponents = [
-  DepartmentListComponent,
-  EmployeeListComponent,
-];
