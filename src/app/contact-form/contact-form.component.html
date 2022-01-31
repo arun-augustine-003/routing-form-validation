@@ -1,48 +1,85 @@
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
 <form
+  [formGroup]="userform"
   *ngIf="hasRoute('/contact')"
   onsubmit="return confirm('Data Submission Successful ✔');"
+  (ngSubmit)="onSubmit(userform.value)"
 >
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input
-      required
-      minlength="3"
-      maxlength="10"
-      ngModel
-      name="firstName"
-      #firstName="ngModel"
-      (change)="log(firstName)"
-      id="firstName"
-      type="text"
-      class="form-control"
-    />
-    <div
-      class="alert alert-danger"
-      *ngIf="firstName.touched && !firstName.valid"
-    >
-      <div *ngIf="firstName.errors.required">First Name is Required</div>
-      <div *ngIf="firstName.errors.minlength">
-        First Name should be minimum
-        {{ firstName.errors.minlength.requiredLength }} characters
+  <p-panel header="Basic Details">
+    <div class="p-fluid forms-grid" style="margin: 1em 0">
+      <div class="form-group">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            pInputText
+            formControlName="name"
+          />
+          <p-message
+            severity="error"
+            [text]="
+              userform.controls['name'].errors['required']
+                ? 'Name is required'
+                : userform.controls['name'].errors['minlength']
+                ? 'Must have atleast 4 characters'
+                : ''
+            "
+            *ngIf="
+              !userform.controls['name'].valid &&
+              userform.controls['name'].dirty
+            "
+          ></p-message>
+          <label for="float-input exampleInputEmail1">Enter name</label>
+        </span>
       </div>
-      <div *ngIf="firstName.errors.pattern">
-        First Name doesn't match the required pattern which is
-        {{ firstName.errors.pattern.requiredPattern }}
+      <br />
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          pInputText
+          formControlName="comment"
+        />
+        <p-message
+          severity="error"
+          [text]="
+            userform.controls['comment'].errors['required']
+              ? 'Name is required'
+              : userform.controls['comment'].errors['minlength']
+              ? 'Must have atleast 6 characters'
+              : ''
+          "
+          *ngIf="
+            !userform.controls['comment'].valid &&
+            userform.controls['comment'].dirty
+          "
+        ></p-message>
+        <label for="float-input exampleInputEmail1">Enter Comment</label>
+      </span>
+      <br />
+      <div>
+        <button
+          pButton
+          type="submit"
+          label="Submit"
+          [disabled]="!userform.valid"
+          class="ui-button-raised ui-button-primary"
+        ></button>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px" *ngIf="submitted">
+        Form Submitted
+        <br />
+        {{ diagnostic }}
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="comment">Comment</label>
-    <textarea
-      ngModel
-      name="comment"
-      id="comment"
-      cols="30"
-      rows="10"
-      class="form-control"
-    ></textarea>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit</button>
+  </p-panel>
 </form>
 <br />
 <a routerLink="/">Go Back to Home</a>

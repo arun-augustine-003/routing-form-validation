@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import {
   Validators,
   FormControl,
@@ -8,36 +7,46 @@ import {
 } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+
+interface Career {
+  job: string;
+}
+
 @Component({
-  selector: 'contact-form',
-  templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.scss'],
+  selector: 'app-validation-demo',
+  templateUrl: './validation-demo.component.html',
+  styleUrls: ['./validation-demo.component.scss'],
   providers: [MessageService],
 })
-export class ContactFormComponent implements OnInit {
+export class ValidationDemoComponent implements OnInit {
+  careers: Career[];
+
+  selectedCareer: Career;
+
   userform: FormGroup;
+
   submitted: boolean;
+
   genders: SelectItem[];
+
   description: string;
 
-  constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private messageService: MessageService
-  ) {}
+  constructor(private fb: FormBuilder, private messageService: MessageService) {
+    this.careers = [{ job: 'Magician' }, { job: 'Clown' }, { job: 'Juggler' }];
+  }
+
   ngOnInit() {
     this.userform = this.fb.group({
-      name: new FormControl(
-        '',
-        Validators.compose([Validators.required, Validators.minLength(4)])
-      ),
-      comment: new FormControl(
+      email: new FormControl('', Validators.required),
+      message: new FormControl(
         '',
         Validators.compose([Validators.required, Validators.minLength(6)])
       ),
+      careers: new FormControl('', Validators.required),
     });
     this.userform.valueChanges.subscribe(console.log);
   }
+
   onSubmit(value: string) {
     this.submitted = true;
     this.messageService.add({
@@ -50,11 +59,5 @@ export class ContactFormComponent implements OnInit {
   get diagnostic() {
     // return JSON.stringify(this.userform.value);
     return null;
-  }
-  log(x) {
-    console.log(x);
-  }
-  hasRoute(route: string) {
-    return this.router.url === route;
   }
 }

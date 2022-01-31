@@ -23,6 +23,10 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
+import { PanelModule } from 'primeng/panel';
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 import { BasicFormComponent } from './basic-form/basic-form.component';
 import { NestedFormComponent } from './nested-form/nested-form.component';
@@ -30,6 +34,7 @@ import { ArrayFormComponent } from './array-form/array-form.component';
 import { ValidFormComponent } from './valid-form/valid-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveComponent } from './reactive/reactive.component';
+import { ValidationDemoComponent } from './validation-demo/validation-demo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +51,7 @@ import { ReactiveComponent } from './reactive/reactive.component';
     ArrayFormComponent,
     ValidFormComponent,
     ReactiveComponent,
+    ValidationDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,10 @@ import { ReactiveComponent } from './reactive/reactive.component';
     InputTextModule,
     InputTextareaModule,
     DropdownModule,
+    PanelModule,
+    ToastModule,
+    MessagesModule,
+    MessageModule,
     FontAwesomeModule,
   ],
   providers: [],
