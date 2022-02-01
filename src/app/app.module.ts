@@ -37,6 +37,11 @@ import { ReactiveComponent } from './reactive/reactive.component';
 import { ValidationDemoComponent } from './validation-demo/validation-demo.component';
 import { EmailArrayFormComponent } from './email-array-form/email-array-form.component';
 import { ReactiveHomeComponent } from './reactive-home/reactive-home.component';
+import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
+import { SquareComponent } from './square/square.component';
+import { BoardComponent } from './board/board.component';
+import { TodoMainComponent } from './todo-main/todo-main.component';
+import { TodosComponent } from './todos/todos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +61,11 @@ import { ReactiveHomeComponent } from './reactive-home/reactive-home.component';
     ValidationDemoComponent,
     EmailArrayFormComponent,
     ReactiveHomeComponent,
+    TicTacToeComponent,
+    SquareComponent,
+    BoardComponent,
+    TodoMainComponent,
+    TodosComponent,
   ],
   imports: [
     BrowserModule,

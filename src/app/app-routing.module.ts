@@ -11,11 +11,20 @@ import { ReactiveComponent } from './reactive/reactive.component';
 import { ReactiveHomeComponent } from './reactive-home/reactive-home.component';
 import { ArrayFormComponent } from './array-form/array-form.component';
 import { EmailArrayFormComponent } from './email-array-form/email-array-form.component';
-
+import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
+import { TodoMainComponent } from './todo-main/todo-main.component';
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'todomain',
+    component: TodoMainComponent,
+  },
+  {
+    path: 'tictactoe',
+    component: TicTacToeComponent,
   },
   {
     path: 'contact',
