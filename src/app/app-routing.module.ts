@@ -8,6 +8,9 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostsComponent } from './posts/posts.component';
 import { ReactiveComponent } from './reactive/reactive.component';
+import { ReactiveHomeComponent } from './reactive-home/reactive-home.component';
+import { ArrayFormComponent } from './array-form/array-form.component';
+import { EmailArrayFormComponent } from './email-array-form/email-array-form.component';
 
 const routes: Routes = [
   {
@@ -19,8 +22,20 @@ const routes: Routes = [
     component: ContactFormComponent,
   },
   {
-    path: 'reactive',
+    path: 'reactive-home',
+    component: ReactiveHomeComponent,
+  },
+  {
+    path: 'reactive-primeng',
     component: ReactiveComponent,
+  },
+  {
+    path: 'array-form',
+    component: ArrayFormComponent,
+  },
+  {
+    path: 'email-array-form',
+    component: EmailArrayFormComponent,
   },
   {
     path: 'routing',

@@ -35,6 +35,8 @@ import { ValidFormComponent } from './valid-form/valid-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { ValidationDemoComponent } from './validation-demo/validation-demo.component';
+import { EmailArrayFormComponent } from './email-array-form/email-array-form.component';
+import { ReactiveHomeComponent } from './reactive-home/reactive-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +54,8 @@ import { ValidationDemoComponent } from './validation-demo/validation-demo.compo
     ValidFormComponent,
     ReactiveComponent,
     ValidationDemoComponent,
+    EmailArrayFormComponent,
+    ReactiveHomeComponent,
   ],
   imports: [
     BrowserModule,
